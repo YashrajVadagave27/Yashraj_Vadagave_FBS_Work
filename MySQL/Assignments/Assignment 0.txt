@@ -1,0 +1,97 @@
+Tables For Hotel Management System
+
+Customer
+
+Customer_ID (PK)
+
+Name
+
+Email
+
+Phone
+
+Address
+
+2. Room
+
+Room_ID (PK)
+
+Room_Type
+
+Rent_Per_Day
+
+Availability
+
+3. Booking
+
+Booking_ID (PK)
+
+Customer_ID (FK)
+
+Room_ID (FK)
+
+Check_In_Date
+
+Check_Out_Date
+
+Total_Rent
+
+4. Food_Menu
+
+Food_ID (PK)
+
+Name
+
+Price
+
+5. Food_Service
+
+Food_Service_ID (PK)
+
+Booking_ID (FK)
+
+Food_ID (FK)
+
+Quantity
+
+Total_Amount
+
+6. Laundry_Service
+
+Laundry_Service_ID (PK)
+
+Booking_ID (FK)
+
+Number_of_Clothes
+
+Rate_Per_Cloth
+
+Total_Amount
+
+7. SiteVisit_Service
+
+SiteVisit_Service_ID (PK)
+
+Booking_ID (FK)
+
+Vehicle_Type
+
+Days
+
+Rate_Per_Day
+
+Total_Amount
+
+8. Invoice
+
+Invoice_ID (PK)
+
+Booking_ID (FK)
+
+Customer_ID (FK)
+
+Invoice_Date
+
+Total_Amount
+
+Payment_Status
