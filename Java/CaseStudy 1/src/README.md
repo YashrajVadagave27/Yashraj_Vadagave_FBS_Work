@@ -1,106 +1,120 @@
-Banking Management System – Java (Console-Based)
-📌 Project Description
+Below is your **properly formatted**, **professional**, **clean**, and **official-style README** with **big bold headings** and **clear structure** exactly as you requested.
 
-This project is a console-based banking management system implemented in Java following the MVC (Model–View–Controller) architecture.
-It manages different account types, transactions, monthly summaries, fund transfers, and account lifecycle activities.
-The project uses arrays (no collections) for data storage and supports full transaction tracking.
+---
 
-📌 Project Architecture – MVC
-1. Model
+# **📘 BANKING MANAGEMENT SYSTEM – JAVA (CONSOLE BASED)**
 
-Contains all business classes:
+## **📌 PROJECT DESCRIPTION**
 
-Account1 (abstract)
+A console-based **Banking Management System** developed in **Core Java** using an **MVC Architecture**.
+It supports multiple account types, transactions, fund transfers, loan calculations, and monthly reporting.
+All data is stored using **arrays only** (no collections).
 
-SavingAccount1
+---
 
-CurrentAccount1
+# **📂 PROJECT ARCHITECTURE – MVC**
 
-SalaryAccount1
+## **1️⃣ MODEL (Business Layer)**
 
-LoanAccount1
+* `Account1` *(Abstract Parent Class)*
+* `SavingAccount1`
+* `CurrentAccount1`
+* `SalaryAccount1`
+* `LoanAccount1`
+* `Transaction1`
 
-Transaction1
+## **2️⃣ CONTROLLER (Logic Layer)**
 
-2. Controller
+* `TransactionManager1` *(Stores and manages transactions)*
+* `Bank1` *(Handles accounts, transfers, reports)*
 
-Handles logic and processing:
+## **3️⃣ VIEW (User Interface Layer)**
 
-TransactionManager1 – stores & filters transactions
+* `Main` *(Menu-driven console UI)*
 
-Bank1 – manages accounts & monthly reports
+---
 
-3. View
+# **🚀 FEATURES & FUNCTIONALITIES**
 
-Main class
+## **✔ ACCOUNT MANAGEMENT**
 
-Provides console-based user interface (menu-driven)
+* Create Accounts (Saving, Current, Salary, Loan)
+* Delete Account
+* Auto-generate 6-digit account number
+* Minimum balance logic (Saving)
+* Overdraft feature (Current)
+* Salary freeze condition
+* Initialization date stored
 
-📌 Features & Functionalities
-✔ Account Management
+## **✔ TRANSACTION MANAGEMENT**
 
-Create accounts (Saving, Current, Salary, Loan)
+* Deposit
+* Withdraw
+* Debit / Credit / All transactions
+* Monthly summary
+* Fund Transfer (Sender → Receiver with logging)
 
-Delete account
+## **✔ LOAN MANAGEMENT**
 
-Automatic account number generation
+* Loan account creation
+* 5% interest calculation
+* Interest transaction record
 
-Minimum balance, overdraft & salary freeze rules
+## **✔ REPORTS**
 
-✔ Transactions
+* Balance check
+* Monthly bank report
+* Transactions filtering
+* Account type summary
 
-Deposit
+## **✔ STORAGE**
 
-Withdraw
+* Arrays only
 
-View debit / credit / all transactions
+  * `Account1 accounts[] = new Account1[80]`
+  * `Transaction1 transactions[] = new Transaction1[200]`
 
-Monthly transaction summary
+---
 
-Fund Transfer (with transaction logs)
+# **🛠 TECHNOLOGY STACK**
 
-✔ Reports
+| Component        | Details     |
+| ---------------- | ----------- |
+| **Language**     | Java        |
+| **Architecture** | MVC Pattern |
+| **Data Storage** | Arrays      |
+| **Interface**    | Console CLI |
 
-Check balance
+---
 
-Monthly bank report
+# **▶ HOW TO RUN**
 
-Loan interest calculation
+## **1️⃣ Compile**
 
-✔ Storage
-
-Uses arrays for storing:
-
-Accounts (Account1[80])
-
-Transactions (Transaction1[200])
-
-📌 Technology Used
-Component	Details
-Language	Java
-IDE	VS Code / IntelliJ IDEA / Eclipse
-Storage	Arrays (No Collections)
-Interface	Console-based CLI
-📌 How to Run the Program
-Steps
-
-Copy all .java files into a single folder.
-
-Open terminal in that folder.
-
-Compile using:
-
+```
 javac Main.java
+```
 
+## **2️⃣ Run**
 
-Run using:
-
+```
 java Main
+```
 
+## **3️⃣ Use Menu Options**
 
-Choose options from the menu to perform banking operations.
+* Create Account
+* Deposit / Withdraw
+* Transfer Money
+* View Transactions
+* Monthly Report
+* Delete Account
 
-📌 FULL SAMPLE OUTPUT (OFFICIAL)
+---
+
+# **📑 FULL SAMPLE OUTPUT (OFFICIAL FORMAT)**
+
+```
 ===== BANK MENU =====
 1. Create Account
 2. Deposit
@@ -183,3 +197,7 @@ Account Number : 654321 | Account Holder Name : Akash Verma | Current Balance : 
 ===== BANK MENU =====
 Enter choice: 10
 Goodbye
+```
+
+---
+
