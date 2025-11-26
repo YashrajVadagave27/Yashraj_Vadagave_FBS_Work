@@ -1,0 +1,173 @@
+-- ============================================================
+-- DATABASE CREATION
+-- ============================================================
+CREATE DATABASE IF NOT EXISTS health_care_management_system;
+USE health_care_management_system;
+
+-- ============================================================
+-- 1. INSURANCE TABLE
+-- ============================================================
+CREATE TABLE IF NOT EXISTS Insurance (
+    insurance_id INT PRIMARY KEY AUTO_INCREMENT,
+    provider_name VARCHAR(100) NOT NULL,
+    company_name VARCHAR(100) NOT NULL,
+    policy_no VARCHAR(50) UNIQUE NOT NULL,
+    policy_details TEXT NULL,
+    start_date DATE NOT NULL DEFAULT (CURRENT_DATE)
+);
+
+-- ============================================================
+-- 2. PATIENT TABLE
+-- ============================================================
+CREATE TABLE IF NOT EXISTS Patient (
+    patient_id INT PRIMARY KEY AUTO_INCREMENT,
+    full_name VARCHAR(100) NOT NULL,
+    dob DATE NOT NULL,
+    gender ENUM('Male', 'Female', 'Other') NOT NULL,
+    contact_phone VARCHAR(15) UNIQUE NOT NULL,
+    email VARCHAR(100) NULL,
+    address VARCHAR(255) NULL,
+    emergency_contact_no VARCHAR(15) NULL,
+    emergency_person_name VARCHAR(100) NULL
+);
+
+-- ============================================================
+-- 3. DOCTOR TABLE
+-- ============================================================
+CREATE TABLE IF NOT EXISTS Doctor (
+    doctor_id INT PRIMARY KEY AUTO_INCREMENT,
+    full_name VARCHAR(100) NOT NULL,
+    specialization VARCHAR(100) NOT NULL,
+    department VARCHAR(100) NOT NULL DEFAULT 'General',
+    contact_phone VARCHAR(15) UNIQUE NOT NULL,
+    email VARCHAR(100) NULL,
+    address VARCHAR(255) NULL,
+    experience INT NOT NULL DEFAULT 0 CHECK (experience >= 0)
+);
+
+-- ============================================================
+-- 4. PATIENT_INSURANCE TABLE (MANY-TO-MANY RELATION)
+-- ============================================================
+CREATE TABLE IF NOT EXISTS Patient_Insurance (
+    patient_id INT NOT NULL,
+    insurance_id INT NOT NULL,
+    policy_status ENUM('Active', 'Inactive') NOT NULL DEFAULT 'Active',
+    expiry_date DATE NULL,
+    PRIMARY KEY (patient_id, insurance_id),
+    FOREIGN KEY (patient_id) REFERENCES Patient(patient_id)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (insurance_id) REFERENCES Insurance(insurance_id)
+        ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+-- ============================================================
+-- 5. MEDICAL_HISTORY TABLE
+-- ============================================================
+CREATE TABLE IF NOT EXISTS Medical_History (
+    mhistory_id INT PRIMARY KEY AUTO_INCREMENT,
+    patient_id INT NOT NULL,
+    diagnosis VARCHAR(255) NOT NULL,
+    allergies VARCHAR(255) NULL,
+    medication VARCHAR(255) NULL,
+    FOREIGN KEY (patient_id) REFERENCES Patient(patient_id)
+        ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+-- ============================================================
+-- 6. ENCOUNTER TABLE (PATIENT ↔ DOCTOR RELATION)
+-- ============================================================
+CREATE TABLE IF NOT EXISTS Encounter (
+    encounter_id INT PRIMARY KEY AUTO_INCREMENT,
+    patient_id INT NOT NULL,
+    doctor_id INT NOT NULL,
+    encounter_date DATE NOT NULL DEFAULT (CURRENT_DATE),
+    reason_for_visit VARCHAR(255) NULL,
+    FOREIGN KEY (patient_id) REFERENCES Patient(patient_id)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (doctor_id) REFERENCES Doctor(doctor_id)
+        ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+-- ============================================================
+-- 7. MEDICAL_PROCEDURE TABLE (renamed from Procedure)
+-- ============================================================
+CREATE TABLE IF NOT EXISTS Medical_Procedure (
+    procedure_id INT PRIMARY KEY AUTO_INCREMENT,
+    procedure_type VARCHAR(100) NOT NULL,
+    procedure_name VARCHAR(100) NOT NULL,
+    procedure_description TEXT NULL,
+    cost DECIMAL(10,2) NOT NULL DEFAULT 0.00 CHECK (cost >= 0),
+    equipment_used VARCHAR(255) NULL
+);
+
+-- ============================================================
+-- 8. PRESCRIPTION TABLE
+-- ============================================================
+CREATE TABLE IF NOT EXISTS Prescription (
+    prescription_id INT PRIMARY KEY AUTO_INCREMENT,
+    medication_name VARCHAR(100) NOT NULL,
+    dosage VARCHAR(50) NULL,
+    frequency VARCHAR(50) NULL,
+    start_date DATE NULL,
+    end_date DATE NULL,
+    quantity INT NOT NULL DEFAULT 1 CHECK (quantity > 0),
+    instructions TEXT NULL,
+    company_name VARCHAR(100) NULL
+);
+
+-- ============================================================
+-- 9. DIAGNOSTIC_TEST TABLE
+-- ============================================================
+CREATE TABLE IF NOT EXISTS Diagnostic_Test (
+    test_id INT PRIMARY KEY AUTO_INCREMENT,
+    test_type VARCHAR(100) NOT NULL,
+    test_description TEXT NULL,
+    cost DECIMAL(10,2) NOT NULL DEFAULT 0.00 CHECK (cost >= 0)
+);
+
+-- ============================================================
+-- 10. ENCOUNTER_PROCEDURE TABLE (BRIDGE: ENCOUNTER ↔ MEDICAL_PROCEDURE)
+-- ============================================================
+CREATE TABLE IF NOT EXISTS Encounter_Procedure (
+    encounter_id INT NOT NULL,
+    procedure_id INT NOT NULL,
+    procedure_date DATE NOT NULL DEFAULT (CURRENT_DATE),
+    outcome VARCHAR(255) NULL,
+    facility_name VARCHAR(100) NOT NULL DEFAULT 'Main Hospital',
+    PRIMARY KEY (encounter_id, procedure_id),
+    FOREIGN KEY (encounter_id) REFERENCES Encounter(encounter_id)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (procedure_id) REFERENCES Medical_Procedure(procedure_id)
+        ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+-- ============================================================
+-- 11. ENCOUNTER_PRESCRIPTION TABLE (BRIDGE: ENCOUNTER ↔ PRESCRIPTION)
+-- ============================================================
+CREATE TABLE IF NOT EXISTS Encounter_Prescription (
+    encounter_id INT NOT NULL,
+    prescription_id INT NOT NULL,
+    issue_date DATE NOT NULL DEFAULT (CURRENT_DATE),
+    dosage_instructions TEXT NULL,
+    PRIMARY KEY (encounter_id, prescription_id),
+    FOREIGN KEY (encounter_id) REFERENCES Encounter(encounter_id)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (prescription_id) REFERENCES Prescription(prescription_id)
+        ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+-- ============================================================
+-- 12. ENCOUNTER_DIAGNOSTIC_TEST TABLE (BRIDGE: ENCOUNTER ↔ DIAGNOSTIC_TEST)
+-- ============================================================
+CREATE TABLE IF NOT EXISTS Encounter_Diagnostic_Test (
+    encounter_id INT NOT NULL,
+    test_id INT NOT NULL,
+    order_date DATE NOT NULL DEFAULT (CURRENT_DATE),
+    result VARCHAR(255) NULL,
+    clinic_name VARCHAR(100) NOT NULL DEFAULT 'Central Lab',
+    PRIMARY KEY (encounter_id, test_id),
+    FOREIGN KEY (encounter_id) REFERENCES Encounter(encounter_id)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (test_id) REFERENCES Diagnostic_Test(test_id)
+        ON DELETE CASCADE ON UPDATE CASCADE
+);
