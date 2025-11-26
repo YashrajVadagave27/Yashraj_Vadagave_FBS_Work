@@ -1,6 +1,4 @@
-Below is your **properly formatted**, **professional**, **clean**, and **official-style README** with **big bold headings** and **clear structure** exactly as you requested.
 
----
 
 # **📘 BANKING MANAGEMENT SYSTEM – JAVA (CONSOLE BASED)**
 
@@ -200,4 +198,5 @@ Goodbye
 ```
 
 ---
+
 
