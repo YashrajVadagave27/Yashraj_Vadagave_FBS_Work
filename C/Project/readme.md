@@ -1,4 +1,4 @@
-**# 🏏 Player Management System – C (Console Based)**
+**🏏 Player Management System – C (Console Based)**
 
 A console-based **Player Management System** developed in **C language** to efficiently manage cricket player records.  
 The system allows adding, removing, updating, searching, and sorting players.  
@@ -171,4 +171,4 @@ Player Management System – C Project
 
 ```
 
----
+
