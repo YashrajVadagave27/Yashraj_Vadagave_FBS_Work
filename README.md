@@ -1,3 +1,20 @@
+**🏏 Player Management System – C (Console Based)**
+
+A console-based Player Management System developed in C language to efficiently manage cricket player records.
+The system allows adding, removing, updating, searching, and sorting players.
+Data is stored using dynamic memory allocation (malloc / realloc) for unlimited expansion.
+
+----
+
+**🔗 Project / Commit Link**
+
+Click the link below to directly open the main project work:
+
+👉 View Full Implementation:
+https://github.com/YashrajVadagave27/Yashraj_Vadagave_FBS_Work/tree/04586b807bfad78bb8b0303afce47de7cd49d70c/Java/CaseStudy%201/src
+
+----
+
 **📘 BANKING MANAGEMENT SYSTEM – JAVA (CONSOLE BASED)**
 
 **📌 PROJECT DESCRIPTION**
