@@ -1,0 +1,7 @@
+roll no, name, marks
+101, yashraj, 98
+102, tejas, 89
+103, raj, 68
+104, amit, 689
+104, amit, 689
+104, amit, 689

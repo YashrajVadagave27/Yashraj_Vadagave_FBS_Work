@@ -1,0 +1,10 @@
+HR,101,Ranjit,50000.0,5000.0,0
+HR,102,Amit,48000.0,4500.0,0
+HR,103,Sneha,47000.0,4000.0,0
+SalesManager,201,Karan,60000.0,12,8000.0
+SalesManager,202,Meena,58000.0,15,7500.0
+SalesManager,203,Rohit,62000.0,10,9000.0
+Admin,301,Pragati,70000.0,10000.0,0
+Admin,302,Isha,68000.0,9500.0,0
+Admin,303,Pooja,72000.0,11000.0,0
+Admin,304,Shubham,75000.0,12000.0,0
