@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+</head>
+<body style="background-color: antiquewhite;">
+
+<h2 align="center" style="color:darkred"><u>Registration Form</u></h2>
+
+<form action="/dummy" method="post">
+
+<table align="center" cellspacing="8" cellpadding="5">
+
+<tr>
+    <td><label for="name">Enter Name:</label></td>
+    <td><input type="text" id="name" name="name" required></td>
+</tr>
+
+<tr>
+    <td><label for="password">Enter Password:</label></td>
+    <td><input type="password" id="password" name="password" required></td>
+</tr>
+
+<tr>
+    <td><label for="address">Enter Address:</label></td>
+    <td><textarea id="address" name="address" rows="3" cols="20" required></textarea></td>
+</tr>
+
+<tr>
+    <td valign="top"><label>Select Games:</label></td>
+    <td>
+        <input type="checkbox" id="hockey" name="game" value="Hockey">
+        <label for="hockey">Hockey</label><br>
+
+        <input type="checkbox" id="football" name="game" value="Football">
+        <label for="football">Football</label><br>
+
+        <input type="checkbox" id="cricket" name="game" value="Cricket">
+        <label for="cricket">Cricket</label><br>
+
+        <input type="checkbox" id="badminton" name="game" value="Badminton">
+        <label for="badminton">Badminton</label>
+    </td>
+</tr>
+
+<tr>
+    <td><label>Gender:</label></td>
+    <td>
+        <input type="radio" id="male" name="gender" value="Male" required>
+        <label for="male">Male</label>
+
+        <input type="radio" id="female" name="gender" value="Female">
+        <label for="female">Female</label>
+
+        <input type="radio" id="others" name="gender" value="Others">
+        <label for="others">Others</label>
+    </td>
+</tr>
+
+<tr>
+    <td><label for="city">Select City:</label></td>
+    <td>
+        <input list="cities" id="city" name="city" required>
+        <datalist id="cities">
+            <option value="Satara">
+            <option value="Pune">
+            <option value="Mumbai">
+            <option value="Nagpur">
+            <option value="Nashik">
+            <option value="Aurangabad">
+        </datalist>
+    </td>
+</tr>
+
+<tr>
+    <td><label for="photo">Select Photo:</label></td>
+    <td><input type="file" id="photo" name="photo"></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td>
+        <input type="submit" value="Submit">
+        <input type="reset" value="Clear">
+    </td>
+</tr>
+
+</table>
+
+</form>
+
+</body>
+</html>
