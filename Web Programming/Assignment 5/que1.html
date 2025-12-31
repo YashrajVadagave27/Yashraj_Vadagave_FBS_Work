@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+</head>
+
+<body style="background-color: antiquewhite;">
+
+<h2 align="center" style="color:darkred"><u>Registration Form</u></h2>
+
+<form action="/dummy" method="post">
+
+<table align="center" cellspacing="8" cellpadding="5">
+
+<tr>
+    <td>Enter Name:</td>
+    <td>
+        <input type="text" id="name" name="name" placeholder="Enter full name" required>
+    </td>
+</tr>
+
+<tr>
+    <td>Enter Password:</td>
+    <td>
+        <input type="password"  id="password"   name="password" placeholder="Enter password"    required>
+    </td>
+</tr>
+
+<tr>
+    <td>Enter Address:</td>
+    <td>
+        <input type="text" id="address" name="address" placeholder="Enter address" required>
+    </td>
+</tr>
+
+<tr>
+    <td valign="top">Select Games:</td>
+    <td>
+        <input type="checkbox" name="game" value="Hockey"> Hockey <br>
+        <input type="checkbox" name="game" value="Football"> Football <br>
+        <input type="checkbox" name="game" value="Cricket"> Cricket <br>
+        <input type="checkbox" name="game" value="Badminton"> Badminton
+    </td>
+</tr>
+
+<tr>
+    <td>Gender:</td>
+    <td>
+        <input type="radio" name="gender" value="Male" required> Male
+        <input type="radio" name="gender" value="Female"> Female
+        <input type="radio" name="gender" value="Others"> Others
+    </td>
+</tr>
+
+<tr>
+    <td>Select City:</td>
+    <td>
+        <input type="text" name="city" placeholder="Enter city name">
+    </td>
+</tr>
+
+<tr>
+    <td>Select Photo:</td>
+    <td>
+        <input type="file" name="photo">
+    </td>
+</tr>
+
+<tr>
+    <td>Country:</td>
+    <td>
+        <input type="text" value="India" readonly>
+    </td>
+</tr>
+
+<tr>
+    <td></td>
+    <td>
+        <input type="submit" value="Submit">
+        <input type="reset" value="Clear">
+    </td>
+</tr>
+
+</table>
+
+</form>
+
+</body>
+</html>

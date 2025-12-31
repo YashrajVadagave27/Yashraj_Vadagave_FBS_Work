@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration Form</title>
+</head>
+
+<body>
+
+<h1>FirstBit Solutions</h1>
+
+<img src="https://i.postimg.cc/9FLzZYBS/logo.jpg"
+     alt="FirstBit Solutions IT Training Institute Logo"
+     height="200"
+     width="200">
+
+<br>
+
+<a href="https://firstbitsolutions.com/" target="_blank">
+    FirstBitSolutions.com
+</a><br>
+
+<i>Your Future Begins Here!</i>
+
+<hr>
+
+<h2><u>Student Registration Form</u></h2>
+
+<form action="/submitForm" method="post">
+
+<table cellspacing="6">
+
+<tr>
+    <td>
+        <label for="fullname"><b>Full Name:</b></label>
+    </td>
+</tr>
+<tr>
+    <td>
+        <input type="text"
+               id="fullname"
+               name="fullname"
+               placeholder="Enter your full name"
+               required>
+    </td>
+</tr>
+
+<tr>
+    <td>
+        <label for="email"><b>Email ID:</b></label>
+    </td>
+</tr>
+<tr>
+    <td>
+        <input type="email"
+               id="email"
+               name="email"
+               placeholder="example@gmail.com"
+               required>
+    </td>
+</tr>
+
+<tr>
+    <td>
+        <label for="phone"><b>Phone Number:</b></label>
+    </td>
+</tr>
+<tr>
+    <td>
+        <input type="tel"
+               id="phone"
+               name="phone"
+               placeholder="e.g. 9876543210"
+               pattern="[0-9]{10}"
+               required>
+    </td>
+</tr>
+
+<tr>
+    <td>
+        <label for="dob"><b>Birth Date:</b></label>
+    </td>
+</tr>
+<tr>
+    <td>
+        <input type="date"
+               id="dob"
+               name="dob">
+    </td>
+</tr>
+
+<tr>
+    <td><b>Select Gender:</b></td>
+</tr>
+<tr>
+    <td>
+        <input type="radio" id="male" name="gender" value="Male">
+        <label for="male">Male</label><br>
+
+        <input type="radio" id="female" name="gender" value="Female">
+        <label for="female">Female</label><br>
+
+        <input type="radio" id="other" name="gender" value="Other">
+        <label for="other">Other</label>
+    </td>
+</tr>
+
+<tr>
+    <td><b>Courses Interested In:</b></td>
+</tr>
+<tr>
+    <td>
+        <input type="checkbox" id="java" name="course" value="Java">
+        <label for="java">Java Full Stack</label><br>
+
+        <input type="checkbox" id="python" name="course" value="Python">
+        <label for="python">Python Full Stack</label><br>
+
+        <input type="checkbox" id="react" name="course" value="React">
+        <label for="react">React JS</label><br>
+
+        <input type="checkbox" id="data" name="course" value="Data">
+        <label for="data">Data Science</label>
+    </td>
+</tr>
+
+<tr>
+    <td>
+        <label for="batch"><b>Preferred Batch Time:</b></label>
+    </td>
+</tr>
+<tr>
+    <td>
+        <input list="batchtime"
+               id="batch"
+               name="batch"
+               placeholder="-- Select --">
+
+        <datalist id="batchtime">
+            <option value="Morning (8 AM - 10 AM)">
+            <option value="Afternoon (1 PM - 3 PM)">
+            <option value="Evening (6 PM - 8 PM)">
+        </datalist>
+    </td>
+</tr>
+
+<tr>
+    <td>
+        <label for="info"><b>Write About Yourself:</b></label>
+    </td>
+</tr>
+<tr>
+    <td>
+        <textarea id="info"
+                  name="info"
+                  rows="4"
+                  cols="60"
+                  placeholder="Tell us about yourself.."></textarea>
+    </td>
+</tr>
+
+<tr>
+    <td>
+        <label for="skill"><b>Rate Your Current Skill Level (1-10):</b></label>
+    </td>
+</tr>
+<tr>
+    <td>
+        <input type="number"
+               id="skill"
+               name="skill"
+               min="1"
+               max="10">
+    </td>
+</tr>
+
+<tr>
+    <td>
+        <input type="submit" value="Submit Form">
+        <input type="reset" value="Reset Form">
+    </td>
+</tr>
+</table>
+</form>
+<hr>
+<p><strong>Address :</strong> Aditya Centeegra, Office No. 7, 3rd Floor, Near IDBI Bank, 
+<p>Dnyaneshwar Paduka Chowk, Pune, Maharashtra 411005</p></p>
+</body>
+</html>
