@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Instagram Post Layout</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        body{
+            background: #fafafa;
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            font-family: 'Times New Roman', Times, serif;
+            display: flex;
+            flex-direction: column;
+            padding-left: 500px;
+            position: relative;
+            left: 100px;;
+        }
+
+        .insta-post{
+            width: 450px;
+            border: 1px solid black;
+            background-color: #fafafa;
+            border-radius: 5px;
+            position: absolute;
+            top:0;
+        }
+
+        .post-header{
+            display: flex;
+            align-items: center;
+            padding: 6px 10px;
+        }
+
+        .profile-pic{
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            /* position: fixed;
+            left:5px; */
+            object-fit: cover;
+        }
+
+        .user-info{
+            display: flex;
+            flex-direction: column;
+            margin-left: 10px;
+            
+        }
+
+        .username{
+            font-weight: bold;
+            font-size: 17px;
+            color: black;
+            margin: 0;
+        }
+
+        .location{
+            font-size: 12px;
+            color: black;
+        }
+        .btn{
+            padding: 2px;
+            width: 15%;
+            height: 28px;
+            border-radius: 10px;
+            margin-left: 130px;
+            font-weight: bolder;
+            cursor: pointer;
+            background-color: #fafafa;
+        }
+        .btn:hover{
+            background-color: yellow;
+        }
+        .logo{
+            margin-left: auto;
+            color: black;
+            cursor: pointer;
+        }
+        
+        .post-image{
+            width: 100%;
+            height: 400px;
+            object-fit:scale-down;
+            display: block;
+
+        }
+
+        .post-actions{
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 10px;
+            font-size: 17px;
+        }
+
+        .post-actions i{
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        .caption{
+            padding: 5px 10px;
+            font-size: 14px;
+
+        }
+        .caption b{
+            margin-right: 5px;
+        }
+        .time{
+            display: flex;
+            flex-direction: column;
+            padding: 5px 10px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="insta-post">
+
+    <div class="post-header">
+        <img src="https://4kwallpapers.com/images/wallpapers/chennai-super-kings-indian-premier-league-ipl-ipl-2021-2560x1080-4938.png" class="profile-pic">
+
+        <div class="user-info">
+            <span class="username">mr___yashaaa_2727</span>
+            <span class="location">Pune, India</span>
+        </div>
+        <button class="btn">Follow</button>
+        <i class="fas fa-ellipsis-v logo"></i>
+    </div>
+
+    <img src="https://images.indianexpress.com/2023/05/Dhoni-14.jpg" class="post-image">
+
+    <div class="post-actions">
+        <div>
+            <i class="far fa-heart" > 10 M</i>
+            <i class="far fa-comment"> 125 k</i>
+            <i class="far fa-paper-plane"> 50 k</i>
+        </div>
+        <i class="far fa-bookmark"></i>
+    </div>
+
+    <div class="caption">
+        <b>mr___yashaaa__2727</b>Captain Cool <i class="fa-duotone fa-solid fa-crown" style="color:gold;"></i><br>
+        #instagram #post #mahiforever #mahi07
+        #chennaisuperkings
+    </div>
+    <div>
+        <span class="time">10 Minute Ago</span>
+    </div>
+
+
+     <div class="post-header">
+        <img src="https://4kwallpapers.com/images/wallpapers/chennai-super-kings-indian-premier-league-ipl-ipl-2021-2560x1080-4938.png" class="profile-pic">
+
+        <div class="user-info">
+            <span class="username">mr___yashaaa_2727</span>
+            <span class="location">Pune, India</span>
+        </div>
+        <button class="btn">Follow</button>
+        <i class="fas fa-ellipsis-v logo"></i>
+    </div>
+
+    <img src="https://wallpaperaccess.com/full/11889018.jpg" class="post-image">
+
+    <div class="post-actions">
+        <div>
+            <i class="far fa-heart" > 15 M</i>
+            <i class="far fa-comment"> 105 k</i>
+            <i class="far fa-paper-plane"> 43 k</i>
+        </div>
+        <i class="far fa-bookmark"></i>
+    </div>
+
+    <div class="caption">
+        <b>mr___yashaaa__2727</b>Trophy Collector <i class="fa-duotone fa-solid fa-crown" style="color:gold;"></i><br>
+        #instagram #post #mahiforever #mahi07
+        #chennaisuperkings
+    </div>
+    <div>
+        <span class="time">10 Minute Ago</span>
+    </div>
+
+
+
+     <div class="post-header">
+        <img src="https://4kwallpapers.com/images/wallpapers/chennai-super-kings-indian-premier-league-ipl-ipl-2021-2560x1080-4938.png" class="profile-pic">
+
+        <div class="user-info">
+            <span class="username">mr___yashaaa_2727</span>
+            <span class="location">Pune, India</span>
+        </div>
+        <button class="btn">Follow</button>
+        <i class="fas fa-ellipsis-v logo"></i>
+    </div>
+
+    <img src="https://wallpaper-house.com/data/out/9/wallpaper2you_349242.jpg" class="post-image">
+
+    <div class="post-actions">
+        <div>
+            <i class="far fa-heart" > 25 M</i>
+            <i class="far fa-comment"> 150 k</i>
+            <i class="far fa-paper-plane"> 75 k</i>
+        </div>
+        <i class="far fa-bookmark"></i>
+    </div>
+
+    <div class="caption">
+        <b>mr___yashaaa__2727</b>Mastermind Mahii <i class="fa-duotone fa-solid fa-crown" style="color:gold;"></i><br>
+        #instagram #post #mahiforever #mahi07
+        #chennaisuperkings
+    </div>
+    <div>
+        <span class="time">10 Minute Ago</span>
+    </div>
+
+</div>
+
+</body>
+</html>
