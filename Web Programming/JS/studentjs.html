@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 700px;
+            padding: 20px;
+            border: 2px solid black;
+            border-radius: 10px;
+        }
+
+        .head {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 8px;
+            vertical-align: top;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input, textarea {
+            width: 95%;
+            padding: 5px;
+        }
+
+        input[type="radio"] {
+            width: auto;
+        }
+
+        .error {
+            color: red;
+            font-size: 13px;
+        }
+
+        button {
+            padding: 8px 15px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="head">
+        <h2>Student Registration Form</h2>
+    </div>
+
+    <form onsubmit="return validateForm()">
+        <table>
+            <tr>
+                <td><label>Name:</label></td>
+                <td>
+                    <input type="text" id="uname" onblur="checkName()">
+                    <span id="nameErr" class="error"></span>
+                </td>
+            </tr>
+
+            <tr>
+                <td><label>Email:</label></td>
+                <td>
+                    <input type="text" id="email" onblur="checkEmail()">
+                    <span id="emailErr" class="error"></span>
+                </td>
+            </tr>
+
+            <tr>
+                <td><label>Password:</label></td>
+                <td>
+                    <input type="password" id="pass" onblur="checkPassword()">
+                    <span id="passErr" class="error"></span>
+                </td>
+            </tr>
+
+            <tr>
+                <td><label>Address:</label></td>
+                <td>
+                    <textarea id="address"></textarea>
+                </td>
+            </tr>
+
+            <tr>
+                <td><label>Mobile:</label></td>
+                <td>
+                    <input type="tel" id="mob" onblur="checkMobile()">
+                    <span id="mobErr" class="error"></span>
+                </td>
+            </tr>
+
+            <tr>
+                <td><label>DOB:</label></td>
+                <td>
+                    <input type="date" id="dob">
+                </td>
+            </tr>
+
+            <tr>
+                <td><label>Course:</label></td>
+                <td>
+                    <input type="radio" id="java" name="course" onclick="checkCourse()">
+                    <label for="java">Java</label>
+
+                    <input type="radio" id="python" name="course" onclick="checkCourse()">
+                    <label for="python">Python</label>
+
+                    <input type="radio" id="datas" name="course" onclick="checkCourse()">
+                    <label for="datas">Data Science</label>
+
+                    <br>
+                    <span id="courseErr" class="error"></span>
+                </td>
+            </tr>
+
+            <tr>
+                <td><label>Time Slot:</label></td>
+                <td>
+                    <input list="times" id="time" onblur="checkTime()">
+                    <datalist id="times">
+                        <option value="09.00 AM To 12.00 PM">
+                        <option value="12.00 PM To 03.00 PM">
+                        <option value="03.00 PM To 05.00 PM">
+                        <option value="05.00 PM To 08.00 PM">
+                    </datalist>
+                    <span id="timeErr" class="error"></span>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2" align="center">
+                    <button type="submit">Register</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<script>
+function checkName() {
+    let name = uname.value.trim();
+    nameErr.innerHTML = name.length < 3 ? "Minimum 3 characters required" : "";
+}
+
+function checkEmail() {
+    let e = email.value.trim();
+    if (e.length === 0)
+        emailErr.innerHTML = "Email is required";
+    else if (!e.includes("@") || !e.includes("."))
+        emailErr.innerHTML = "Invalid email format";
+    else
+        emailErr.innerHTML = "";
+}
+
+function checkPassword() {
+    let p = pass.value.trim();
+    let hasCapital = false;
+    let hasSpecial = false;
+    let specialChars = "@#$%&!*";
+
+    if (p.length < 6) {
+        passErr.innerHTML = "Minimum 6 characters required";
+        return;
+    }
+
+    for (let i = 0; i < p.length; i++) {
+        let ch = p[i];
+
+        if (ch >= 'A' && ch <= 'Z') {
+            hasCapital = true;
+        }
+
+        if (specialChars.includes(ch)) {
+            hasSpecial = true;
+        }
+    }
+
+    if (!hasCapital) {
+        passErr.innerHTML = "Must contain one capital letter";
+    } else if (!hasSpecial) {
+        passErr.innerHTML = "Must contain one special symbol (@ # $ % & ! *)";
+    } else {
+        passErr.innerHTML = "";
+    }
+}
+
+function checkMobile() {
+    let m = mob.value.trim();
+    mobErr.innerHTML = m.length !== 10 ? "Mobile must be 10 digits" : "";
+}
+
+function checkCourse() {
+    courseErr.innerHTML =
+        (!java.checked && !python.checked && !datas.checked)
+        ? "Select a course"
+        : "";
+}
+
+function checkTime() {
+    timeErr.innerHTML = time.value.trim().length === 0 ? "Select time slot" : "";
+}
+
+function validateForm() {
+    checkName();
+    checkEmail();
+    checkPassword();
+    checkMobile();
+    checkCourse();
+    checkTime();
+
+    if (
+        nameErr.innerHTML === "" &&
+        emailErr.innerHTML === "" &&
+        passErr.innerHTML === "" &&
+        mobErr.innerHTML === "" &&
+        courseErr.innerHTML === "" &&
+        timeErr.innerHTML === ""
+    ) {
+        alert("Form Submitted Successfully!");
+        return true;  
+    }
+
+    return false;
+}
+</script>
+
+</body>
+</html>

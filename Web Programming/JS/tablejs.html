@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Document</title>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height:auto;
+        }
+
+        .data {
+            padding: 15px;
+            background-color: rgb(228, 224, 224);
+            width: 800px;
+            text-align: center;
+        }
+
+        .inline-inputs {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        input {
+            width: 70px;
+            text-align: center;
+        }
+
+        #btn {
+            background-color: yellow;
+            width: 90px;
+            height: 30px;
+            border-radius: 10px;
+            border: 1px solid black;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .table{
+            background-color: yellow;
+        }
+        .main{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+        }
+        .even{
+            background-color: yellow;
+        }
+        .odd{
+            background-color: green;
+        }
+    </style>
+
+    <script>
+        function printTable() {
+            let start = Number(document.getElementById("n1").value);
+            let end = Number(document.getElementById("n2").value);
+
+            let str = "<div class='main'>";
+
+            for (let j = start; j <= end; j++) {
+                if(j%2 == 0){
+                    str += "<table border='1' cellpadding='5' class='even'>";
+                }else{
+                    str += "<table border='1' cellpadding='5' class='odd'>";
+                }
+                for (let i = 1; i <= 10; i++) {
+                    let res = j * i;
+                    str += "<tr><td>" + j + "</td><td>*</td><td>" + i + "</td><td>=</td><td>" + res + "</td></tr>";
+                }
+
+                str += "</table>";
+            }
+
+            str += "</div>";
+
+            document.getElementById("res").innerHTML = str;
+        }
+    </script>
+
+</head>
+
+<body>
+    <div class="data">
+        <div class="inline-inputs">
+            <label>Enter Start:</label>
+            <input type="number" id="n1" placeholder="start">
+            <label>Enter End:</label>
+            <input type="number" id="n2" placeholder="end">
+        </div>
+
+        <button onclick="printTable()" id="btn">Print Table</button>
+        <br><br>
+        <span id="res">Output is:</span>
+    </div>
+</body>
+</html>

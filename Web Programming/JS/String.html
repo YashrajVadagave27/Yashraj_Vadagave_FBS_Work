@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container{
+            background-color: gray;
+            width: 300px;
+            padding: 10px;
+            color: rgb(243, 208, 208);
+        }
+        input{
+            width:100px;
+            margin-bottom: 10px;
+        }
+        #btn{
+            width:100px;
+            margin-bottom: 10px;
+            margin-left: 90px;
+            border-radius: 10px;
+            height: 30px;
+            background-color: yellow;
+        }
+      
+    </style>
+</head>
+<body>
+    <div class="container">
+        <label for="inp">Enter The String:</label>
+        <input type="text" id="inp"><br>
+        <button id="btn" onclick="submit()">
+            submit
+        </button>
+        <br>
+        Reverse String: <span id="rev"></span>
+        <br>
+        Vowel Count: <span id="vCount"></span>
+        <br>
+        Is Palindrome: <span id="palin"></span>
+    </div>
+    <script>
+        function submit() {
+            let inp = document.getElementById("inp").value;
+
+            let reverse = inp.split("").reverse().join("");
+            document.getElementById("rev").innerText = reverse;
+
+            let count = 0;
+            for (ch of inp.toLowerCase()) {
+                if ("aeiou".includes(ch)) {
+                    count++;
+                }
+            }
+            document.getElementById("vCount").innerText = count;
+
+            document.getElementById("palin").innerText =
+                (inp.toLowerCase() == reverse.toLowerCase()) ? "YES" : "NO";
+        }
+    </script>
+</body>
+</html>

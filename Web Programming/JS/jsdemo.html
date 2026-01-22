@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Document</title>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .data {
+            padding: 15px;
+            background-color: rgb(228, 224, 224);
+            width: 400px;
+            text-align: center;
+        }
+
+        .inline-inputs {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        input {
+            width: 70px;
+            text-align: center;
+        }
+
+        #btn {
+            background-color: yellow;
+            width: 70px;
+            height: 30px;
+            border-radius: 10px;
+            border: 1px solid black;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+    </style>
+
+    <script>
+        function calculator(op){
+            let no1 = Number(document.getElementById("n1").value);
+            let no2 = Number(document.getElementById("n2").value);
+
+            if(op == '+'){
+                res = no1 + no2;
+            }else if(op == '-'){
+                res = no1 - no2;
+            }else if(op == '*'){
+                res = no1 * no2;
+            }else{
+                res = no1 / no2;
+            }
+            document.getElementById("res").innerHTML = "Output is: "+res;
+        }
+        // function addition() {
+        //     let no1 = Number(document.getElementById("n1").value);
+        //     let no2 = Number(document.getElementById("n2").value);
+
+        //     document.getElementById("res").innerHTML =
+        //         "Addition is: " + (no1 + no2);
+        // }
+    </script>
+</head>
+
+<body>
+    <div class="data">
+
+        <div class="inline-inputs">
+            <label>Enter No1:</label>
+            <input type="number" id="n1" placeholder="no1">
+
+            <label>Enter No2:</label>
+            <input type="number" id="n2" placeholder="no2">
+        </div>
+        <!-- <button onclick="addition()" id="btn">ADD</button>  instead of writing 4 function--> 
+
+        <button onclick="calculator('+')" id="btn">ADD</button>
+        <button onclick="calculator('-')" id="btn">SUB</button>
+        <button onclick="calculator('*')" id="btn">MUL</button>
+        <button onclick="calculator('/')" id="btn">DIV</button>
+        <br>
+
+        <span id="res">Output is:</span>
+
+    </div>
+</body>
+</html>

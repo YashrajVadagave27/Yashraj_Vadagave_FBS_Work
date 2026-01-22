@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply Image Credential</title> 
+</head>
+
+<body>
+
+<div class="container">
+
+    <div>
+        <img src="https://wallpapercave.com/wp/wp14807116.webp"
+             id="image"
+             width="400px"
+             height="500px">
+    </div>
+
+    <div class="cred">
+
+        <div class="inline">
+            <input type="checkbox" id="border">
+            <label for="border">Apply Border</label>
+        </div><br>
+
+        <div>
+            <label for="size">Border Size (px)</label>
+            <input type="number" id="size" placeholder="Enter border size" disabled     >
+
+            <label for="type">Border Type</label>
+            <select id="type" disabled>
+                <option value="solid">Solid</option>
+                <option value="dashed">Dashed</option>
+                <option value="dotted">Dotted</option>
+                <option value="double">Double</option>
+            </select>
+
+            <label for="color">Border Color</label>
+            <input type="color" id="color" disabled>
+        </div><br>
+
+        <div>
+            <label for="shape">Select Shape</label>
+            <select id="shape">
+                <option value="rectangle">Rectangle</option>
+                <option value="rounded">Rounded</option>
+                <option value="circle">Circle</option>
+            </select>
+        </div><br>
+
+        <button id="applyBtn">Apply</button>
+
+    </div>
+
+</div>
+
+<script src="demoeventlistner.js"></script>
+
+</body>
+</html>

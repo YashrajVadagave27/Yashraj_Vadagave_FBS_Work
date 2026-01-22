@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Find Common Elements</title>
+</head>
+<body>
+
+    <input type="text" id="inp1" placeholder="Enter values e.g. 1,2,3">
+    <input type="text" id="inp2" placeholder="Enter values e.g. 2,3,4">
+
+    <button onclick="common()">Find Common</button>
+    <p id="res"></p>
+
+    <script>
+        function common() {
+            inp1 = document.getElementById("inp1").value;
+            inp2 = document.getElementById("inp2").value;
+
+            arr1 = inp1.split(",");
+            arr2 = inp2.split(",");
+            arr3 = [];
+            k=0
+            
+            for (i = 0; i < arr1.length; i++) {
+                for (j = 0; j < arr2.length; j++) {
+                    if (arr1[i] == arr2[j]) {
+                        arr3[k++]=arr1[i];
+                    }
+                }
+            }
+            console.log(arr3)
+            document.getElementById("res").innerText = arr3
+        }
+    </script>
+
+</body>
+</html>

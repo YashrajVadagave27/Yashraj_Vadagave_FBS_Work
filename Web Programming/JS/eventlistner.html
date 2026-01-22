@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventListener Example</title>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            let images = document.getElementsByClassName("image");
+
+            for (let i = 0; i < images.length; i++) {
+                images[i].addEventListener("mouseover", function () {
+
+                    let temp = document.getElementById("dest").src;
+                    document.getElementById("dest").src = this.src;
+                    this.src = temp;
+
+                });
+            }
+
+            document.getElementById("btn").addEventListener("click", function(){
+                if(document.getElementById("inp").type == "text"){
+                    document.getElementById("inp").type = "password"
+                }else{
+                    document.getElementById("inp").type = "text"
+                }
+            })
+
+        });
+
+        function Factorial(){
+            let no = document.getElementById("factinp").value;
+            let fact = 1;
+
+            for(let i = 1; i <= no; i++){
+                fact = fact * i;
+            }
+
+            document.getElementById("res").innerHTML="Factorial is: "+fact;
+        }
+
+        //this will written null pointer exception. 1. so we can write below line in body tag.
+        // docunemt.getElementById("factbtn").addEventListener("click", Factorial);
+        function fact(){
+            document.getElementById("factbtn").addEventListener("click", Factorial);
+        }
+        document.addEventListener("DOMContentLoaded", fact);
+    </script>
+</head>
+
+<body>
+
+    <div>
+        <img src="https://wallpapercave.com/wp/wp14807116.webp"
+             id="dest"
+             height="500px">
+    </div>
+
+    <div>
+        <img src="https://wallpapercave.com/wp/wp4151514.jpg"
+             class="image"
+             height="300px">
+
+        <img src="https://i.pinimg.com/736x/13/a6/a9/13a6a9dd475bf51afedd3eb2b8f2a287.jpg"
+             class="image"
+             height="300px">
+
+        <img src="https://i.pinimg.com/originals/4a/26/e9/4a26e9394583018a4e05996a301b1ad5.jpg"
+             class="image"
+             height="300px">
+
+        <img src="https://i.pinimg.com/originals/ac/64/38/ac6438d606b5d17819ddb8c2dac8657a.jpg"
+             class="image"
+             height="300px">
+    </div>
+
+    <br>
+
+    <input type="text" id="inp"><br><br>
+    <button id="btn">btn</button>
+    
+    <br><br>
+
+    <input type="number" id="factinp"><br><br>
+    <button id="factbtn">Factorial</button><br>
+    <span id="res"></span>
+
+    <!-- <script>
+        document.getElementById("factbtn").addEventListener("click", Factorial);
+    </script> //1. -->
+</body>
+</html>
